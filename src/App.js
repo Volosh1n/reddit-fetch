@@ -29,7 +29,11 @@ class App extends Component {
         continue;
       if(/imgur/.test(link))
         link += ".jpg";
-      images.push(<img src={link} alt={"image" + index} />);
+      images.push(
+        <a href={link} target="_blank">
+          <img src={link} alt={"image" + index} />
+        </a>
+      );
     }
     return <div>{images}</div>;
   }
