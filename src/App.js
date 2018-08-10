@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-const URL = "https://www.reddit.com/r/Delightfullychubby.json"
+const URL = "https://www.reddit.com/r/Delightfullychubby.json?limit=50"
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     fetch(URL).then(res => res.json())
       .then(posts => {
         this.setState({ posts: posts.data.children });
@@ -25,12 +25,12 @@ class App extends Component {
     let images = [];
     for (var index = 0; index < this.state.posts.length; index++) {
       var link = this.state.posts[index].data.url;
-      if((/.gifv/.test(link)) || (/v.redd.it/.test(link)))
+      if ((/.gifv/.test(link)) || (/v.redd.it/.test(link)))
         continue;
-      if(/imgur/.test(link))
+      if (/imgur/.test(link))
         link += ".jpg";
-      images.push(
-        <a href={link} target="_blank">
+      images.push (
+        <a href={link} target="_blank" key={'image' + index}>
           <img src={link} alt={"image" + index} />
         </a>
       );
