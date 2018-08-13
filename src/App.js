@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Fade from 'react-reveal/Fade';
 
 const URL = "https://www.reddit.com/r/Delightfullychubby.json?limit=50"
 
@@ -31,7 +32,9 @@ class App extends Component {
         link += ".jpg";
       images.push (
         <a href={link} target="_blank" key={'image' + index}>
-          <img src={link} alt={"image" + index} />
+          <Fade>
+            <img src={link} alt={"image" + index} />
+          </Fade>
         </a>
       );
     }
