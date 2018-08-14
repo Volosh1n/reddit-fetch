@@ -31,11 +31,13 @@ class App extends Component {
       if (/imgur/.test(link))
         link += ".jpg";
       images.push (
-        <a href={link} target="_blank" key={'image' + index}>
-          <Fade>
-            <img src={link} alt={"image" + index} />
-          </Fade>
-        </a>
+        <Fade>
+          <a href={link} target="_blank" key={'image' + index}>
+            <Fade>
+              <img src={link} alt={"image" + index} />
+            </Fade>
+          </a>
+        </Fade>
       );
     }
     return <div>{images}</div>;
