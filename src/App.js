@@ -26,7 +26,7 @@ class App extends Component {
     let images = [];
     for (var index = 0; index < this.state.posts.length; index++) {
       var link = this.state.posts[index].data.url;
-      if ((/.gifv/.test(link)) || (/v.redd.it/.test(link)))
+      if ((/.gifv/.test(link)) || (/v.redd.it/.test(link)) || (/imgur.com.a/.test(link)))
         continue;
       if (/imgur/.test(link))
         link += ".jpg";
