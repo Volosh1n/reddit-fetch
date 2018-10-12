@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Fade from 'react-reveal/Fade';
+import Image from "react-graceful-image";
 
 const URL = "https://www.reddit.com/r/Delightfullychubby.json?limit=50"
 
@@ -26,18 +26,16 @@ class App extends Component {
     let images = [];
     for (var index = 0; index < this.state.posts.length; index++) {
       var link = this.state.posts[index].data.url;
-      if ((/.gifv/.test(link)) || (/v.redd.it/.test(link)) || (/imgur.com.a/.test(link)))
+      if ((/\b(?:gifv|v.redd.it|imgur.com.a|youtube)\b/gi).test(link))
         continue;
       if (/imgur/.test(link))
         link += ".jpg";
       images.push (
-        <Fade>
-          <a href={link} target="_blank" key={'image' + index}>
-            <Fade>
-              <img src={link} alt={"image" + index} />
-            </Fade>
-          </a>
-        </Fade>
+        <a href={link} target="_blank" key={'image' + index}>
+          <Image
+            src={link}
+            alt={"image" + index} />
+        </a>
       );
     }
     return <div>{images}</div>;

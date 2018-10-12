@@ -6,6 +6,6 @@ A simple gallery of last posts from [/r/Delightfullychubby](https://www.reddit.c
 
 `const URL` contains path to subreddit's JSON.
 
-App skips `v.redd.it` and Imgur's `.gifv` contents.
+App skips `v.redd.it`, YouTube and Imgur's `.gifv` video contents.
 
 All of the images have full-size src-attribute.
