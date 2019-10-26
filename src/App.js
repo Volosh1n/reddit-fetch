@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Image from "react-graceful-image";
 
 const URL = "https://www.reddit.com/r/Delightfullychubby.json?limit=50"
 
@@ -15,30 +14,29 @@ class App extends Component {
   componentDidMount() {
     fetch(URL).then(res => res.json())
       .then(posts => {
-        this.setState({ posts: posts.data.children });
+        this.addToStatePosts(posts.data.children)
       })
-      .catch(err => {
-        console.log(err);
-      });
+  }
+
+  addToStatePosts(newPosts) {
+    let filtered = newPosts.filter(function(value){
+      return value.data.url.match(/\.(jpeg|jpg|png)$/) != null;
+    });
+    this.setState({ posts: this.state.posts.concat(filtered) });
+  }
+
+  renderImage(link) {
+    return (
+      <a href={link} target="_blank">
+        <img src={link} alt={"image"} />
+      </a>
+    );
   }
 
   render() {
-    let images = [];
-    for (var index = 0; index < this.state.posts.length; index++) {
-      var link = this.state.posts[index].data.url;
-      if ((/\b(?:gifv|v.redd.it|imgur.com.a|youtube)\b/gi).test(link))
-        continue;
-      if (/imgur/.test(link))
-        link += ".jpg";
-      images.push (
-        <a href={link} target="_blank" key={'image' + index}>
-          <Image
-            src={link}
-            alt={"image" + index} />
-        </a>
-      );
-    }
-    return <div>{images}</div>;
+    return(
+      <div>{this.state.posts.map(post => this.renderImage(post.data.url))}</div>
+    );
   }
 }
 

@@ -8,14 +8,13 @@ div {
 }
 
 img {
-  background-color: white;
   vertical-align: middle;
   max-height: 250px;
   max-width: 300px;
   margin: 10px;
-  padding: 5px;
   transition: .3s;
   box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  background: url(https://via.placeholder.com/250x300.jpg?text=%20) no-repeat scroll 0 0;
 }
 
 img:hover {
