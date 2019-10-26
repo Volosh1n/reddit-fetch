@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   addToStatePosts(newPosts) {
-    let filtered = newPosts.filter(function(value){
+    let filtered = newPosts.filter(value => {
       return value.data.url.match(/\.(jpeg|jpg|png)$/) != null;
     });
     this.setState({ posts: this.state.posts.concat(filtered) });
