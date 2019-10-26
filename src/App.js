@@ -31,9 +31,9 @@ class App extends Component {
     this.setState({ posts: this.state.posts.concat(filtered) });
   }
 
-  composeIcon(thumbnail, largeImage, alt, index) {
+  composeIcon(thumbnail, imageLink, alt, index) {
     return (
-      <a href={largeImage} target="_blank" key={index}>
+      <a href={imageLink} target="_blank" key={index}>
         <img src={thumbnail} alt={alt} />
       </a>
     );
