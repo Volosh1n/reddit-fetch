@@ -6,7 +6,6 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-graceful-image": "^1.2.9",
     "react-scripts": "1.1.4"
   },
   "scripts": {
