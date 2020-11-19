@@ -1,0 +1,32 @@
+body {
+  background-color: #fafafa;
+  text-align: center;
+}
+
+div {
+  display: inline-block;
+}
+
+img {
+  vertical-align: middle;
+  max-height: 250px;
+  max-width: 300px;
+  margin: 10px;
+  transition: .3s;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+img:hover {
+  transition: .3s;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#footer {
+  font-weight: bold;
+  color: gray;
+  font-size: .9rem;
+  display: block;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
