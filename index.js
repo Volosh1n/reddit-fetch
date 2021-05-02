@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   const baseURL = 'https://www.reddit.com/r/'
-  const desiredSubreddit = window.location.pathname.split('/')[2]
+  const search = location.search.substr(1, location.search.length)
+  const desiredSubreddit = search.substr(1, search.length)
   const subreddit = desiredSubreddit.length == 0 ? 'Delightfullychubby' : desiredSubreddit
   const URL = baseURL.concat(subreddit).concat('.json?limit=100')
   const container = document.querySelector('#container')
